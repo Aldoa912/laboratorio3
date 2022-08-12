@@ -2569,7 +2569,7 @@ MAIN:
 LOOP:
     INCF PORTC, F ; Incrementamos el Puerto C
 VERIFICACION:
-    MOVF 178, W
+    MOVF CONT20MS, W
     SUBLW 50
     BTFSS STATUS, 2 ; verificamos bandera z
     GOTO VERIFICACION
