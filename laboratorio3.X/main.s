@@ -36,6 +36,8 @@ PSECT udata_shr
     DS 1
  STATUS_TEMP:
     DS 1
+ CONT20MS:
+    DS 1
 ;******************************************************************************* 
 ; Vector Reset    
 ;******************************************************************************* 
@@ -56,8 +58,8 @@ ISR:
     BTFSS INTCON, 2	    ; EstÃ¡ encendido el bit T0IF?
     GOTO  RRBIF 
     BCF INTCON, 2	    ; apagamos la bandera de T0IF
-    INCF cont50ms	    ; incrementamos la variable
-    MOVLW 61
+    INCF CONT20MS	    ; incrementamos la variable
+    MOVLW 178
     MOVWF TMR0		    ; reinicamos el valor de N en TMR0
     GOTO POP
 RRBIF:
@@ -79,9 +81,9 @@ PSECT CODE, delta=2, abs
 MAIN:
     BANKSEL OSCCON
     
-    BSF OSCCON, 6	; IRCF2 SelecciÃ³n de 4 MHz
-    BSF OSCCON, 5	; IRCF1
-    BCF OSCCON, 4	; IRCF0
+    BSF OSCCON, 6	; IRCF2 SelecciÃ³n de 2 MHz
+    BCF OSCCON, 5	; IRCF1
+    BSF OSCCON, 4	; IRCF0
     
     BSF OSCCON, 0	; SCS Reloj Interno
     
@@ -99,14 +101,14 @@ MAIN:
     
     BSF OPTION_REG, 2
     BSF OPTION_REG, 1
-    BSF OPTION_REG, 0	; PS2-0: PRESCALER 1:256 SELECIONADO 
+    BCF OPTION_REG, 0	; PS2-0: PRESCALER 1:128 SELECIONADO 
     
     
     BANKSEL PORTC
     CLRF PORTC		; Se limpia el puerto C
-    CLRF cont50ms	; Se limpia la variable cont50ms
+    CLRF CONT20MS	; Se limpia la variable cont50ms
     
-    MOVLW 61
+    MOVLW 178
     MOVWF TMR0		; CARGAMOS EL VALOR DE N = DESBORDE 50mS
     
     BCF INTCON, 2	; Apagamos la bandera T0IF del TMR0
@@ -118,11 +120,11 @@ MAIN:
 LOOP:
     INCF PORTC, F	; Incrementamos el Puerto C
 VERIFICACION:    
-    MOVF cont50ms, W
-    SUBLW 10
+    MOVF 178, W
+    SUBLW 50
     BTFSS STATUS, 2	; verificamos bandera z
     GOTO VERIFICACION
-    CLRF cont50ms
+    CLRF CONT20MS
     GOTO LOOP		; Regresamos a la etiqueta LOOP
 ;******************************************************************************* 
 ; Fin de CÃ³digo    
