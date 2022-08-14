@@ -78,7 +78,6 @@ RRBIF:
     BCF INTCON, 0
     
 
-    
 POP:
     SWAPF STATUS_TEMP, W    ; movemos los nibles de status de nuevo y los
 			    ; cargamos a W
