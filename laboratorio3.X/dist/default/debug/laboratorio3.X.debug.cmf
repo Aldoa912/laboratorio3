@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$build/default/production/main.o
+$build/default/debug/main.o
 CODE - 0 0 0 148 2 1
 udata_shr COMMON 1 70 70 4 1 1
 config CONFIG 4 2007 2007 2 2 1
@@ -50,7 +50,7 @@ STRING 148-1FFF 2
 # are in ascending order of addresses.
 # All other numeric values are in decimal.
 %LINETAB
-$build/default/production/main.o
+$build/default/debug/main.o
 0 CODE ABS >47:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
 0 CODE ABS >48:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
 1 CODE ABS >53:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s

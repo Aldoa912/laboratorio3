@@ -4,11 +4,11 @@ Linker command line:
 
 -W-3 \
   --edf=C:\Program Files\Microchip\xc8\v2.40\pic\dat\20220703182018_en.msgs \
-  -cs -h+dist/default/production\laboratorio3.X.production.sym \
-  --cmf=dist/default/production\laboratorio3.X.production.cmf -z -Q16F887 \
-  -oC:\Users\aldoa\AppData\Local\Temp\xcAsu2s.4 --fixupoverflow=error \
+  -cs -h+dist/default/debug\laboratorio3.X.debug.sym \
+  --cmf=dist/default/debug\laboratorio3.X.debug.cmf -z -Q16F887 \
+  -oC:\Users\aldoa\AppData\Local\Temp\xcAsldg.4 --fixupoverflow=error \
   -ver=XC8 PIC(R) Assembler --fixupoverflow=lstwarn \
-  -Mdist/default/production/laboratorio3.X.production.map -E1 --acfsm=1493 \
+  -Mdist/default/debug/laboratorio3.X.debug.map -E1 --acfsm=1493 \
   -ACODE=00h-07FFhx4 -ASTRCODE=00h-01FFFh -ASTRING=00h-0FFhx32 \
   -ACONST=00h-0FFhx32 -AENTRY=00h-0FFhx32 -ACOMMON=070h-07Fh \
   -ABANK0=020h-06Fh -ABANK1=0A0h-0EFh -ABANK2=0110h-016Fh \
@@ -17,7 +17,7 @@ Linker command line:
   -ASFR1=080h-09Fh -ASFR2=0100h-010Fh -ASFR3=0180h-018Fh \
   -ACONFIG=02007h-02008h -DCONFIG=2 -AIDLOC=02000h-02003h -DIDLOC=2 \
   -AEEDATA=00h-0FFh/02100h -DEEDATA=2 -DCODE=2 -DSTRCODE=2 -DSTRING=2 \
-  -DCONST=2 -DENTRY=2 build/default/production/main.o 
+  -DCONST=2 -DENTRY=2 build/default/debug/main.o 
 
 Object code version is 3.11
 
@@ -26,7 +26,7 @@ Machine type is 16F887
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-build/default/production/main.o
+build/default/debug/main.o
                 config                             2007     2007        2        0       4
                 CODE                                  0        0      148        0       0
                 udata_shr                            70       70        4       70       1

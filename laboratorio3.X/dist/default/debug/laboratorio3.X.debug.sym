@@ -34,7 +34,7 @@ __Ludata_bank3 0 0 ABS 0
 %segments
 udata_shr 70 73 COMMON 70 1
 %locals
-build/default/production/main.o
+build/default/debug/main.o
 main.s
 47 0 0 ABS 0
 48 0 0 ABS 0

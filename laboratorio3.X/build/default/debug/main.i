@@ -2597,7 +2597,7 @@ MAIN:
     CLRF BOTON
 
 LOOP:
-    INCF PORTC ; Incrementamos el Puerto C
+    INCF PORTC, F ; Incrementamos el Puerto C
 LOOP2:
    CALL AUMENTARC
    CALL QUITARC

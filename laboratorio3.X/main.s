@@ -38,6 +38,8 @@ PSECT udata_shr
     DS 1
  CONT20MS:
     DS 1
+ BOTON:
+    DS 1
 ;******************************************************************************* 
 ; Vector Reset    
 ;******************************************************************************* 
@@ -54,6 +56,14 @@ PUSH:
     SWAPF STATUS, W	    ; movemos los nibles de status en w
     MOVWF STATUS_TEMP	    ; guardamos el valor de w en variable. 
 			    ; temporal de status
+BISR:
+    BANKSEL PORTA
+    BTFSS PORTB,0     
+    BSF BOTON, 0
+    BTFSS PORTB,1
+    BSF BOTON, 1
+    
+    BCF INTCON, 0
 ISR:  
     BTFSS INTCON, 2	    ; EstÃ¡ encendido el bit T0IF?
     GOTO  RRBIF 
@@ -66,6 +76,9 @@ RRBIF:
     BTFSS INTCON, 0	    ; EstÃ¡ encendido el bit RBIF?
     GOTO POP
     BCF INTCON, 0
+    
+
+    
 POP:
     SWAPF STATUS_TEMP, W    ; movemos los nibles de status de nuevo y los
 			    ; cargamos a W
@@ -84,10 +97,11 @@ MAIN:
     BSF OSCCON, 6	; IRCF2 SelecciÃ³n de 2 MHz
     BCF OSCCON, 5	; IRCF1
     BSF OSCCON, 4	; IRCF0
-    
     BSF OSCCON, 0	; SCS Reloj Interno
     
     BANKSEL TRISC
+    BSF TRISB, 0        
+    BSF TRISB, 1    
     CLRF TRISC		; Limpiar el registro TRISB
     
     BANKSEL ANSEL
@@ -102,9 +116,12 @@ MAIN:
     BSF OPTION_REG, 2
     BSF OPTION_REG, 1
     BCF OPTION_REG, 0	; PS2-0: PRESCALER 1:128 SELECIONADO 
+    BCF OPTION_REG, 7   
     
     
     BANKSEL PORTC
+    CLRF PORTB
+    CLRF PORTD  
     CLRF PORTC		; Se limpia el puerto C
     CLRF CONT20MS	; Se limpia la variable cont50ms
     
@@ -113,19 +130,62 @@ MAIN:
     
     BCF INTCON, 2	; Apagamos la bandera T0IF del TMR0
     BSF INTCON, 5	; Habilitando la interrupcion T0IE TMR0
+    BSF INTCON, 7	; Habilitamos el GIE interrupciones globales      
+    BSF INTCON, 3      
+    BCF INTCON, 0   
     
-    BSF INTCON, 7	; Habilitamos el GIE interrupciones globales
+    BANKSEL IOCB 
+    BSF IOCB, 0         
+    BSF IOCB, 1         
+    BSF TRISB, 0        
+    BSF TRISB, 1        
+    CLRF TRISD          
     
+    BANKSEL WPUB 
+    BSF WPUB, 0         
+    BSF WPUB, 1         
+    
+    CLRF BOTON
         
 LOOP:
-    INCF PORTC, F	; Incrementamos el Puerto C
+    INCF PORTC	; Incrementamos el Puerto C
+LOOP2:
+   CALL AUMENTARC
+   CALL QUITARC   
 VERIFICACION:    
     MOVF CONT20MS, W
     SUBLW 50
     BTFSS STATUS, 2	; verificamos bandera z
-    GOTO VERIFICACION
+    GOTO LOOP2
     CLRF CONT20MS
     GOTO LOOP		; Regresamos a la etiqueta LOOP
+    
+;*******************************************************************************
+;
+;*******************************************************************************
+   
+QUITARC: 
+    BTFSS BOTON, 1    
+    RETURN    
+    
+    DECF PORTD, F     
+    MOVLW 0x0F       
+    BTFSC PORTD, 4    
+    MOVWF PORTD      
+      
+    CLRF BOTON
+    RETURN
+
+AUMENTARC: 
+    BTFSS BOTON, 0      
+    RETURN             
+    
+    INCF PORTD, F      
+    BTFSC PORTD, 4    
+    CLRF PORTD         
+    
+    CLRF BOTON          
+    RETURN 
 ;******************************************************************************* 
 ; Fin de CÃ³digo    
 ;******************************************************************************* 
