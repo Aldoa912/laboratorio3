@@ -16,17 +16,17 @@ PROCESSOR 16F887
 ; CONFIG1
   CONFIG  FOSC = INTRC_NOCLKOUT ; Oscillator Selection bits (INTOSCIO oscillator: I/O function on RA6/OSC2/CLKOUT pin, I/O function on RA7/OSC1/CLKIN)
   CONFIG  WDTE = OFF            ; Watchdog Timer Enable bit (WDT disabled and can be enabled by SWDTEN bit of the WDTCON register)
-  CONFIG  PWRTE = ON            ; Power-up Timer Enable bit (PWRT enabled)
-  CONFIG  MCLRE = ON            ; RE3/MCLR pin function select bit (RE3/MCLR pin function is MCLR)
+  CONFIG  PWRTE = OFF           ; Power-up Timer Enable bit (PWRT disabled)
+  CONFIG  MCLRE = OFF           ; RE3/MCLR pin function select bit (RE3/MCLR pin function is digital input, MCLR internally tied to VDD)
   CONFIG  CP = OFF              ; Code Protection bit (Program memory code protection is disabled)
   CONFIG  CPD = OFF             ; Data Code Protection bit (Data memory code protection is disabled)
   CONFIG  BOREN = OFF           ; Brown Out Reset Selection bits (BOR disabled)
   CONFIG  IESO = OFF            ; Internal External Switchover bit (Internal/External Switchover mode is disabled)
   CONFIG  FCMEN = OFF           ; Fail-Safe Clock Monitor Enabled bit (Fail-Safe Clock Monitor is disabled)
-  CONFIG  LVP = ON              ; Low Voltage Programming Enable bit (RB3/PGM pin has PGM function, low voltage programming enabled)
+  CONFIG  LVP = OFF             ; Low Voltage Programming Enable bit (RB3 pin has digital I/O, HV on MCLR must be used for programming)
 
 ; CONFIG2
-  CONFIG  BOR4V = BOR21V        ; Brown-out Reset Selection bit (Brown-out Reset set to 2.1V)
+  CONFIG  BOR4V = BOR40V        ; Brown-out Reset Selection bit (Brown-out Reset set to 4.0V)
   CONFIG  WRT = OFF             ; Flash Program Memory Self Write Enable bits (Write protection off)
 ;******************************************************************************* 
 ; Variables    
@@ -56,15 +56,14 @@ PUSH:
     SWAPF STATUS, W	    ; movemos los nibles de status en w
     MOVWF STATUS_TEMP	    ; guardamos el valor de w en variable. 
 			    ; temporal de status
-BISR:
+ISR:
     BANKSEL PORTA
     BTFSS PORTB,0     
     BSF BOTON, 0
     BTFSS PORTB,1
     BSF BOTON, 1
-    
+    BANKSEL INTCON
     BCF INTCON, 0
-ISR:  
     BTFSS INTCON, 2	    ; EstÃ¡ encendido el bit T0IF?
     GOTO  RRBIF 
     BCF INTCON, 2	    ; apagamos la bandera de T0IF
@@ -98,9 +97,7 @@ MAIN:
     BSF OSCCON, 4	; IRCF0
     BSF OSCCON, 0	; SCS Reloj Interno
     
-    BANKSEL TRISC
-    BSF TRISB, 0        
-    BSF TRISB, 1    
+    BANKSEL TRISC 
     CLRF TRISC		; Limpiar el registro TRISB
     
     BANKSEL ANSEL
