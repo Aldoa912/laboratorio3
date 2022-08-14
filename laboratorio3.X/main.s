@@ -31,15 +31,16 @@ PROCESSOR 16F887
 ;******************************************************************************* 
 ; Variables    
 ;******************************************************************************* 
-PSECT udata_shr
- W_TEMP:
-    DS 1
- STATUS_TEMP:
-    DS 1
+PSECT udata_bank0
  CONT20MS:
     DS 1
  BOTON:
     DS 1
+ W_TEMP:
+    DS 1
+ STATUS_TEMP:
+    DS 1
+
 ;******************************************************************************* 
 ; Vector Reset    
 ;******************************************************************************* 
@@ -62,6 +63,7 @@ ISR:
     BSF BOTON, 0
     BTFSS PORTB,1
     BSF BOTON, 1
+BISR:
     BANKSEL INTCON
     BCF INTCON, 0
     BTFSS INTCON, 2	    ; EstÃ¡ encendido el bit T0IF?
@@ -97,7 +99,9 @@ MAIN:
     BSF OSCCON, 4	; IRCF0
     BSF OSCCON, 0	; SCS Reloj Interno
     
-    BANKSEL TRISC 
+    BANKSEL TRISC
+    BSF TRISB, 0        
+    BSF TRISB, 1    
     CLRF TRISC		; Limpiar el registro TRISB
     
     BANKSEL ANSEL
@@ -124,6 +128,7 @@ MAIN:
     MOVLW 178
     MOVWF TMR0		; CARGAMOS EL VALOR DE N = DESBORDE 50mS
     
+    BANKSEL INTCON
     BCF INTCON, 2	; Apagamos la bandera T0IF del TMR0
     BSF INTCON, 5	; Habilitando la interrupcion T0IE TMR0
     BSF INTCON, 7	; Habilitamos el GIE interrupciones globales      
@@ -164,7 +169,7 @@ QUITARC:
     BTFSS BOTON, 1    
     RETURN    
     
-    DECF PORTD, F     
+    DECF PORTD, 1     
     MOVLW 0x0F       
     BTFSC PORTD, 4    
     MOVWF PORTD      
@@ -176,7 +181,7 @@ AUMENTARC:
     BTFSS BOTON, 0      
     RETURN             
     
-    INCF PORTD, F      
+    INCF PORTD, 1      
     BTFSC PORTD, 4    
     CLRF PORTD         
     

@@ -12,8 +12,8 @@
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
 $build/default/production/main.o
-CODE - 0 0 0 146 2 1
-udata_shr COMMON 1 70 70 4 1 1
+CODE - 0 0 0 14A 2 1
+udata_bank0 BANK0 1 20 20 4 1 1
 config CONFIG 4 2007 2007 2 2 1
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
@@ -21,22 +21,22 @@ config CONFIG 4 2007 2007 2 2 1
 #    <class name> <range> <delta>
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
-RAM 20-6F 1
+RAM 24-6F 1
 RAM A0-EF 1
 RAM 110-16F 1
 RAM 190-1EF 1
-BANK0 20-6F 1
+BANK0 24-6F 1
 BANK1 A0-EF 1
 BANK2 110-16F 1
 BANK3 190-1EF 1
-CONST 146-1FFF 2
-ENTRY 146-1FFF 2
+CONST 14A-1FFF 2
+ENTRY 14A-1FFF 2
 IDLOC 2000-2003 2
-CODE 146-1FFF 2
-COMMON 74-7F 1
+CODE 14A-1FFF 2
+COMMON 70-7F 1
 EEDATA 2100-21FF 2
-STRCODE 146-1FFF 2
-STRING 146-1FFF 2
+STRCODE 14A-1FFF 2
+STRING 14A-1FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -51,98 +51,101 @@ STRING 146-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $build/default/production/main.o
-0 CODE ABS >47:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
 0 CODE ABS >48:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-1 CODE ABS >53:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-4 CODE ABS >55:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-5 CODE ABS >56:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-6 CODE ABS >57:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-7 CODE ABS >60:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-9 CODE ABS >61:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-A CODE ABS >62:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-B CODE ABS >63:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-C CODE ABS >64:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-D CODE ABS >65:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-F CODE ABS >66:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-10 CODE ABS >67:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-11 CODE ABS >68:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-12 CODE ABS >69:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-13 CODE ABS >70:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-14 CODE ABS >71:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-15 CODE ABS >72:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-16 CODE ABS >73:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-17 CODE ABS >75:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-18 CODE ABS >76:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-19 CODE ABS >77:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-1A CODE ABS >81:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-1B CODE ABS >83:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-1C CODE ABS >84:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-1D CODE ABS >85:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-1E CODE ABS >86:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-1F CODE ABS >91:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-100 CODE ABS >93:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-102 CODE ABS >95:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-103 CODE ABS >96:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-104 CODE ABS >97:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-105 CODE ABS >98:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-106 CODE ABS >100:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-108 CODE ABS >101:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-109 CODE ABS >103:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-10B CODE ABS >104:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-10C CODE ABS >105:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+0 CODE ABS >49:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+1 CODE ABS >54:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+4 CODE ABS >56:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+5 CODE ABS >57:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+6 CODE ABS >58:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+7 CODE ABS >61:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+9 CODE ABS >62:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+A CODE ABS >63:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+B CODE ABS >64:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+C CODE ABS >65:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+D CODE ABS >67:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+F CODE ABS >68:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+10 CODE ABS >69:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+11 CODE ABS >70:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+12 CODE ABS >71:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+13 CODE ABS >72:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+14 CODE ABS >73:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+15 CODE ABS >74:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+16 CODE ABS >75:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+17 CODE ABS >77:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+18 CODE ABS >78:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+19 CODE ABS >79:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+1A CODE ABS >83:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+1B CODE ABS >85:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+1C CODE ABS >86:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+1D CODE ABS >87:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+1E CODE ABS >88:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+1F CODE ABS >93:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+100 CODE ABS >95:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+102 CODE ABS >97:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+103 CODE ABS >98:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+104 CODE ABS >99:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+105 CODE ABS >100:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+106 CODE ABS >102:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+108 CODE ABS >103:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+109 CODE ABS >104:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+10A CODE ABS >105:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+10B CODE ABS >107:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
 10D CODE ABS >108:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-10F CODE ABS >109:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-110 CODE ABS >110:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-111 CODE ABS >112:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-112 CODE ABS >113:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-113 CODE ABS >114:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-114 CODE ABS >115:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+10E CODE ABS >109:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+10F CODE ABS >112:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+111 CODE ABS >113:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+112 CODE ABS >114:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+113 CODE ABS >116:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+114 CODE ABS >117:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
 115 CODE ABS >118:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-117 CODE ABS >119:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-118 CODE ABS >120:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-119 CODE ABS >121:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-11A CODE ABS >122:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-11B CODE ABS >124:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-11C CODE ABS >125:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-11D CODE ABS >127:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-11E CODE ABS >128:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-11F CODE ABS >129:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-120 CODE ABS >130:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-121 CODE ABS >131:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+116 CODE ABS >119:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+117 CODE ABS >122:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+119 CODE ABS >123:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+11A CODE ABS >124:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+11B CODE ABS >125:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+11C CODE ABS >126:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+11D CODE ABS >128:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+11E CODE ABS >129:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+11F CODE ABS >131:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+121 CODE ABS >132:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
 122 CODE ABS >133:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-124 CODE ABS >134:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-125 CODE ABS >135:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-126 CODE ABS >136:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-127 CODE ABS >137:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-128 CODE ABS >138:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+123 CODE ABS >134:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+124 CODE ABS >135:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+125 CODE ABS >136:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+126 CODE ABS >138:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+128 CODE ABS >139:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
 129 CODE ABS >140:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-12B CODE ABS >141:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-12C CODE ABS >142:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-12D CODE ABS >144:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-12E CODE ABS >147:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-12F CODE ABS >149:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-130 CODE ABS >150:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-131 CODE ABS >152:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-132 CODE ABS >153:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+12A CODE ABS >141:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+12B CODE ABS >142:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+12C CODE ABS >143:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+12D CODE ABS >145:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+12F CODE ABS >146:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+130 CODE ABS >147:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+131 CODE ABS >149:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+132 CODE ABS >152:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
 133 CODE ABS >154:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
 134 CODE ABS >155:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-135 CODE ABS >156:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-136 CODE ABS >157:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-137 CODE ABS >164:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-138 CODE ABS >165:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-139 CODE ABS >167:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-13A CODE ABS >168:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+135 CODE ABS >157:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+136 CODE ABS >158:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+137 CODE ABS >159:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+138 CODE ABS >160:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+139 CODE ABS >161:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+13A CODE ABS >162:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
 13B CODE ABS >169:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
 13C CODE ABS >170:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
 13D CODE ABS >172:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
 13E CODE ABS >173:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-13F CODE ABS >176:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-140 CODE ABS >177:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-141 CODE ABS >179:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-142 CODE ABS >180:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+13F CODE ABS >174:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+140 CODE ABS >175:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+141 CODE ABS >177:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+142 CODE ABS >178:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
 143 CODE ABS >181:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
-144 CODE ABS >183:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+144 CODE ABS >182:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
 145 CODE ABS >184:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+146 CODE ABS >185:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+147 CODE ABS >186:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+148 CODE ABS >188:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
+149 CODE ABS >189:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab3\laboratorio3\laboratorio3.X\main.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -155,8 +158,8 @@ F CODE ABS >66:C:\Users\aldoa\Desktop\CuartoSemestre\Programicro\Laboratorio\lab
 # was defined in a psect then <psect> will be "-". File-name
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
-__Hspace_0 146 0 ABS 0 - -
-__Hspace_1 74 0 ABS 0 - -
+__Hspace_0 14A 0 ABS 0 - -
+__Hspace_1 24 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
 __Hspace_4 4010 0 ABS 0 - -
 __Hudata_bank0 0 0 ABS 0 udata_bank0 -
@@ -168,14 +171,14 @@ __Hudata 0 0 ABS 0 udata -
 __Hconfig 4012 0 CONFIG 4 config -
 __Ledata 0 0 ABS 0 edata -
 __Ludata 0 0 ABS 0 udata -
-__HCODE 28C 0 ABS 0 CODE -
+__HCODE 294 0 ABS 0 CODE -
 __Hcode 0 0 ABS 0 code -
 __Hdata 0 0 ABS 0 data -
 __LCODE 0 0 ABS 0 CODE -
 __Lcode 0 0 ABS 0 code -
 __Ldata 0 0 ABS 0 data -
 __S0 0 0 ABS 0 - -
-__S1 74 0 ABS 0 - -
+__S1 24 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
 __Lconfig 0 0 CONFIG 4 config -
 __Lspace_0 0 0 ABS 0 - -
@@ -212,7 +215,7 @@ __Ludata_shr 0 0 ABS 0 udata_shr -
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-udata_shr 1 70 70 4 1
+udata_bank0 1 20 20 4 1
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section
 # is indicated by %NOTES. The first line indicates the name and decimal
