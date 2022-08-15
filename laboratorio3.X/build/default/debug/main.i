@@ -2465,30 +2465,33 @@ ENDM
 ; CONFIG1
   CONFIG FOSC = INTRC_NOCLKOUT ; Oscillator Selection bits (INTOSCIO oscillator: I/O function on ((PORTA) and 07Fh), 6/OSC2/CLKOUT pin, I/O function on ((PORTA) and 07Fh), 7/OSC1/CLKIN)
   CONFIG WDTE = OFF ; Watchdog Timer Enable bit (WDT disabled and can be enabled by ((WDTCON) and 07Fh), 0 bit of the WDTCON register)
-  CONFIG PWRTE = ON ; Power-up Timer Enable bit (PWRT enabled)
-  CONFIG MCLRE = ON ; ((PORTE) and 07Fh), 3/MCLR pin function select bit (((PORTE) and 07Fh), 3/MCLR pin function is MCLR)
+  CONFIG PWRTE = OFF ; Power-up Timer Enable bit (PWRT disabled)
+  CONFIG MCLRE = OFF ; ((PORTE) and 07Fh), 3/MCLR pin function select bit (((PORTE) and 07Fh), 3/MCLR pin function is digital input, MCLR internally tied to VDD)
   CONFIG CP = OFF ; Code Protection bit (Program memory code protection is disabled)
   CONFIG CPD = OFF ; Data Code Protection bit (Data memory code protection is disabled)
   CONFIG BOREN = OFF ; Brown Out Reset Selection bits (BOR disabled)
   CONFIG IESO = OFF ; Internal External Switchover bit (Internal/External Switchover mode is disabled)
   CONFIG FCMEN = OFF ; Fail-Safe Clock Monitor Enabled bit (Fail-Safe Clock Monitor is disabled)
-  CONFIG LVP = ON ; Low Voltage Programming Enable bit (((PORTB) and 07Fh), 3/PGM pin has PGM function, low voltage programming enabled)
+  CONFIG LVP = OFF ; Low Voltage Programming Enable bit (((PORTB) and 07Fh), 3 pin has digital I/O, HV on MCLR must be used for programming)
 
 ; CONFIG2
-  CONFIG BOR4V = BOR21V ; Brown-out Reset Selection bit (Brown-out Reset set to 2.1V)
+  CONFIG BOR4V = BOR40V ; Brown-out Reset Selection bit (Brown-out Reset set to 4.0V)
   CONFIG WRT = OFF ; Flash Program Memory Self Write Enable bits (Write protection off)
 ;*******************************************************************************
 ; Variables
 ;*******************************************************************************
-PSECT udata_shr
- W_TEMP:
-    DS 1
- STATUS_TEMP:
+PSECT udata_bank0
+ CONTADOR:
     DS 1
  CONT20MS:
     DS 1
  BOTON:
     DS 1
+ W_TEMP:
+    DS 1
+ STATUS_TEMP:
+    DS 1
+
 ;*******************************************************************************
 ; Vector Reset
 ;*******************************************************************************
@@ -2505,15 +2508,10 @@ PUSH:
     SWAPF STATUS, W ; movemos los nibles de status en w
     MOVWF STATUS_TEMP ; guardamos el valor de w en variable.
        ; temporal de status
-BISR:
-    BANKSEL PORTA
-    BTFSS PORTB,0
-    BSF BOTON, 0
-    BTFSS PORTB,1
-    BSF BOTON, 1
 
-    BCF INTCON, 0
 ISR:
+    BANKSEL INTCON
+    BCF INTCON, 0
     BTFSS INTCON, 2 ; EstÃ¡ encendido el bit ((INTCON) and 07Fh), 2?
     GOTO RRBIF
     BCF INTCON, 2 ; apagamos la bandera de ((INTCON) and 07Fh), 2
@@ -2525,7 +2523,11 @@ RRBIF:
     BTFSS INTCON, 0 ; EstÃ¡ encendido el bit ((INTCON) and 07Fh), 0?
     GOTO POP
     BCF INTCON, 0
-
+    BANKSEL PORTA
+    BTFSS PORTB,0
+    BSF BOTON, 0
+    BTFSS PORTB,1
+    BSF BOTON, 1
 
 
 POP:
@@ -2551,7 +2553,7 @@ MAIN:
     BANKSEL TRISC
     BSF TRISB, 0
     BSF TRISB, 1
-    CLRF TRISC ; Limpiar el registro TRISB
+    CLRF TRISD
 
     BANKSEL ANSEL
     CLRF ANSEL
@@ -2577,6 +2579,7 @@ MAIN:
     MOVLW 178
     MOVWF TMR0 ; CARGAMOS EL VALOR DE N = DESBORDE 50mS
 
+    BANKSEL INTCON
     BCF INTCON, 2 ; Apagamos la bandera ((INTCON) and 07Fh), 2 del TMR0
     BSF INTCON, 5 ; Habilitando la interrupcion ((INTCON) and 07Fh), 5 TMR0
     BSF INTCON, 7 ; Habilitamos el ((INTCON) and 07Fh), 7 interrupciones globales
@@ -2590,6 +2593,7 @@ MAIN:
     BSF TRISB, 1
     CLRF TRISD
 
+
     BANKSEL WPUB
     BSF WPUB, 0
     BSF WPUB, 1
@@ -2601,6 +2605,7 @@ LOOP:
 LOOP2:
    CALL AUMENTARC
    CALL QUITARC
+
 VERIFICACION:
     MOVF CONT20MS, W
     SUBLW 50
@@ -2620,7 +2625,7 @@ QUITARC:
     DECF PORTD, F
     MOVLW 0x0F
     BTFSC PORTD, 4
-    MOVWF PORTD
+    MOVWF CONTADOR
 
     CLRF BOTON
     RETURN

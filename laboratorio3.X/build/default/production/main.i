@@ -2481,6 +2481,8 @@ ENDM
 ; Variables
 ;*******************************************************************************
 PSECT udata_bank0
+ CONTADOR:
+    DS 1
  CONT20MS:
     DS 1
  BOTON:
@@ -2506,13 +2508,8 @@ PUSH:
     SWAPF STATUS, W ; movemos los nibles de status en w
     MOVWF STATUS_TEMP ; guardamos el valor de w en variable.
        ; temporal de status
+
 ISR:
-    BANKSEL PORTA
-    BTFSS PORTB,0
-    BSF BOTON, 0
-    BTFSS PORTB,1
-    BSF BOTON, 1
-BISR:
     BANKSEL INTCON
     BCF INTCON, 0
     BTFSS INTCON, 2 ; EstÃ¡ encendido el bit ((INTCON) and 07Fh), 2?
@@ -2526,6 +2523,11 @@ RRBIF:
     BTFSS INTCON, 0 ; EstÃ¡ encendido el bit ((INTCON) and 07Fh), 0?
     GOTO POP
     BCF INTCON, 0
+    BANKSEL PORTA
+    BTFSS PORTB,0
+    BSF BOTON, 0
+    BTFSS PORTB,1
+    BSF BOTON, 1
 
 
 POP:
@@ -2551,7 +2553,8 @@ MAIN:
     BANKSEL TRISC
     BSF TRISB, 0
     BSF TRISB, 1
-    CLRF TRISC ; Limpiar el registro TRISB
+    CLRF TRISD
+
 
     BANKSEL ANSEL
     CLRF ANSEL
@@ -2591,6 +2594,7 @@ MAIN:
     BSF TRISB, 1
     CLRF TRISD
 
+
     BANKSEL WPUB
     BSF WPUB, 0
     BSF WPUB, 1
@@ -2598,10 +2602,11 @@ MAIN:
     CLRF BOTON
 
 LOOP:
-    INCF PORTC ; Incrementamos el Puerto C
+    INCF PORTC, F ; Incrementamos el Puerto C
 LOOP2:
    CALL AUMENTARC
    CALL QUITARC
+
 VERIFICACION:
     MOVF CONT20MS, W
     SUBLW 50
@@ -2618,10 +2623,10 @@ QUITARC:
     BTFSS BOTON, 1
     RETURN
 
-    DECF PORTD, 1
+    DECF PORTD, F
     MOVLW 0x0F
     BTFSC PORTD, 4
-    MOVWF PORTD
+    MOVWF CONTADOR
 
     CLRF BOTON
     RETURN
@@ -2630,7 +2635,7 @@ AUMENTARC:
     BTFSS BOTON, 0
     RETURN
 
-    INCF PORTD, 1
+    INCF PORTD, F
     BTFSC PORTD, 4
     CLRF PORTD
 
